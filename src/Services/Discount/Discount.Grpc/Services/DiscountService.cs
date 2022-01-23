@@ -26,7 +26,7 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
         {
             throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProducName = {request.ProductName} is not found."));
         }
-        _logger.LogInformation($"Discount is retrieved for ProductName : {coupon.ProductName}, Amount : {coupon.Amount}");
+        _logger.LogInformation("Discount is retrieved for ProductName : {productName}, Amount : {amount}", coupon.ProductName, coupon.Amount);
 
         var couponModel = _mapper.Map<CouponModel>(coupon);
         return couponModel;
@@ -37,7 +37,7 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
         var coupon = _mapper.Map<Coupon>(request.Coupon);
         await _repository.CreateDiscount(coupon);
 
-        _logger.LogInformation($"Discount is successfully created. ProductName : {coupon.ProductName}");
+        _logger.LogInformation("Discount is successfully created. ProductName : {productName}", coupon.ProductName);
 
         var couponModel = _mapper.Map<CouponModel>(coupon);
         return couponModel;
@@ -48,7 +48,7 @@ public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
         var coupon = _mapper.Map<Coupon>(request.Coupon);
         await _repository.UpdateDiscount(coupon);
 
-        _logger.LogInformation($"Discount is successfully updated. ProductName : {coupon.ProductName}");
+        _logger.LogInformation("Discount is successfully updated. ProductName : {productName}", coupon.ProductName);
 
         var couponModel = _mapper.Map<CouponModel>(coupon);
         return couponModel;
