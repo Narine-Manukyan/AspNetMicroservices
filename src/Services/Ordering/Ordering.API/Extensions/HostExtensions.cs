@@ -33,6 +33,7 @@ public static class HostExtensions
                 MigrateDatabase<TContext>(host, seeder, retryForAvailability);
             }
         }
+        return host;
     }
 
     private static void InvokeSeeder<TContext>(Action<TContext, IServiceProvider> seeder, 
