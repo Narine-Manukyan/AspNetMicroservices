@@ -20,6 +20,7 @@ public static class HostExtensions
         try
         {
             logger.LogInformation("MIgarting database associated with context {DbContextName}", typeof(TContext).Name);
+            InvokeSeeder(seeder, context, services);
             logger.LogInformation("MIgarted database associated with context {DbContextName}", typeof(TContext).Name);
         }
         catch (SqlException ex)
