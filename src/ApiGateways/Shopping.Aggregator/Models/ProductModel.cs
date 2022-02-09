@@ -1,5 +1,5 @@
 ﻿namespace Shopping.Aggregator.Models;
-public class CatalogModel
+public class ProductModel
 {
     public string Id { get; set; }
 

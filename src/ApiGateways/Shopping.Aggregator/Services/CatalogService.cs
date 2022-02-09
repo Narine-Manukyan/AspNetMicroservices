@@ -1,4 +1,5 @@
-﻿using Shopping.Aggregator.Models;
+﻿using Shopping.Aggregator.Extensions;
+using Shopping.Aggregator.Models;
 
 namespace Shopping.Aggregator.Services;
 
@@ -11,18 +12,21 @@ public class CatalogService : ICatalogService
         _client = client ?? throw new ArgumentNullException(nameof(client));
     }
 
-    public Task<IEnumerable<CatalogModel>> GetCatalog()
+    public async Task<IEnumerable<ProductModel>> GetProducts()
     {
-        throw new NotImplementedException();
+       var response = await _client.GetAsync("/api/v1/Catalog");
+       return await response.ReadContentAs<List<ProductModel>>();
     }
 
-    public Task<CatalogModel> GetCatalog(string id)
+    public async Task<ProductModel> GetProduct(string id)
     {
-        throw new NotImplementedException();
+        var response = await _client.GetAsync($"/api/v1/Catalog/{id}");
+        return await response.ReadContentAs<ProductModel>();
     }
 
-    public Task<IEnumerable<CatalogModel>> GetCatalogByCategory()
+    public async Task<IEnumerable<ProductModel>> GetProductByCategory(string category)
     {
-        throw new NotImplementedException();
+        var response = await _client.GetAsync($"/api/v1/Catalog/GetProductByCategory/{category}");
+        return await response.ReadContentAs<List<ProductModel>>();
     }
 }

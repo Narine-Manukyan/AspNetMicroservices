@@ -4,8 +4,8 @@ namespace Shopping.Aggregator.Services;
 
 public interface ICatalogService
 {
-    Task<IEnumerable<CatalogModel>> GetCatalog();
-    Task<IEnumerable<CatalogModel>> GetCatalogByCategory();
-    Task<CatalogModel> GetCatalog(string id);
+    Task<IEnumerable<ProductModel>> GetProducts();
+    Task<IEnumerable<ProductModel>> GetProductByCategory(string category);
+    Task<ProductModel> GetProduct(string id);
 
 }
