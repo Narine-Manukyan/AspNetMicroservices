@@ -36,7 +36,7 @@ public class ShoppingController : ControllerBase
             item.ImageFile = product.ImageFile;
         }
 
-        var orders = await _orderService.GetOrderByUserName(userName);
+        var orders = await _orderService.GetOrdersByUserName(userName);
 
         var shoppingModel = new ShoppingModel
         {

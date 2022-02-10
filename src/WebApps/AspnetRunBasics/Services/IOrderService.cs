@@ -1,6 +1,6 @@
-﻿using Shopping.Aggregator.Models;
+﻿using AspnetRunBasics.Model;
 
-namespace Shopping.Aggregator.Services;
+namespace AspnetRunBasics.Services;
 
 public interface IOrderService
 {
