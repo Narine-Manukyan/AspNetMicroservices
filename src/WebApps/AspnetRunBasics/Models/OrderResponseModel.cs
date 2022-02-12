@@ -1,6 +1,6 @@
-﻿namespace AspnetRunBasics.Model;
+﻿namespace AspnetRunBasics.Models;
 
-public class BasketCheckoutModel
+public class OrderResponseModel
 {
     public string UserName { get; set; }
     public decimal TotalPrice { get; set; }

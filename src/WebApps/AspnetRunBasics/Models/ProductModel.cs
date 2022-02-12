@@ -1,4 +1,4 @@
-﻿namespace AspnetRunBasics.Model;
+﻿namespace AspnetRunBasics.Models;
 
 public class ProductModel
 {
